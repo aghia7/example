@@ -2,9 +2,9 @@ public class MySearch {
 
     private MySearch() {}
 
-    public static <T> boolean linearSearch(T[] products, T searchingItem) {
-        for (T product : products) {
-            if (product.equals(searchingItem)) {
+    public static <T> boolean linearSearch(T[] data, T searchingItem) {
+        for (T item : data) {
+            if (item.equals(searchingItem)) {
                 return true;
             }
         }
@@ -12,20 +12,24 @@ public class MySearch {
         return false;
     }
 
-    public static <T extends Comparable<T>> boolean binarySearch(T[] products, T searchingItem) {
-        return binarySearch(products, searchingItem, 0, products.length - 1);
+    public static <T extends Comparable<T>> int binarySearch(T[] data, T searchingItem) {
+        return binarySearch(data, searchingItem, 0, data.length - 1);
     }
 
-    private static <T extends Comparable<T>> boolean binarySearch(T[] products, T searchingItem, int start, int end) {
-        if (start > end) return false;
+    private static <T extends Comparable<T>> int binarySearch(T[] data, T searchingItem, int start, int end) {
+        if (start > end) return -1;
         int mid = (start + end) / 2;
-        int cmp = searchingItem.compareTo(products[mid]);
+        int cmp = searchingItem.compareTo(data[mid]);
         if (cmp == 0) {
-            return true;
+            int k = binarySearch(data, searchingItem, mid+1,end);
+            if (k != -1) {
+                return k;
+            }
+            return mid;
         } else if (cmp > 0) {
-            return binarySearch(products, searchingItem, mid+1,end);
+            return binarySearch(data, searchingItem, mid+1,end);
         } else {
-            return binarySearch(products, searchingItem, start, mid-1);
+            return binarySearch(data, searchingItem, start, mid-1);
         }
     }
 

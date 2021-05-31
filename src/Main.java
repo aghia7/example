@@ -1,40 +1,38 @@
 public class Main {
+
+
+
+
     public static void main(String[] args) {
-        Product[] products = new Product[] {
-                new Product("Nokia 3210", 150),
-                new Product("Huawei", 570),
-                new Product("Samsung S21 Ultra", 1050),
-                new Product("iPhone 12 Pro", 1100),
-        };
+        WeightedGraph<String> graph = new WeightedGraph<>(true);
 
-        Product searchingItem = new Product("Samsung S20 Ultra", 1050);
+        graph.addEdge("Almaty", "Astana", 2.1);
+        graph.addEdge("Almaty", "Shymkent", 7.2);
+        graph.addEdge("Shymkent", "Astana", 3.9);
+        graph.addEdge("Astana", "Kostanay", 3.5);
+        graph.addEdge("Shymkent", "Kyzylorda", 5.4);
 
-        boolean found = MySearch.linearSearch(products, searchingItem); // O(N)
+        System.out.println(graph.hasEdge("Shymkent", "Astana"));
 
-        System.out.println((found ? "Found" : "Not found"));
+        System.out.println("Dijkstra:");
+        Search<String> djk = new DijkstraSearch<>(graph, "Almaty");
+        outputPath(djk, "Kyzylorda");
 
-        found = MySearch.binarySearch(products, searchingItem); // O(logN)
-
-        System.out.println((found ? "Found" : "Not found"));
-
+//        System.out.println("DFS:");
+//        Search<String> dfs = new DepthFirstSearch<>(graph, "Almaty");
+//        outputPath(dfs, "Kyzylorda");
 //
+//        System.out.println("\n--------------------------------");
 //
-//        BST<String, Product> bst = new BST<>();
-//        //                new Product("Nokia 3210", 150),
-////                new Product("Huawei", 570),
-////                new Product("Samsung S21 Ultra", 1050),
-////                new Product("iPhone 12 Pro", 1100),
-//        bst.put("QP", new Product("Huawei", 570));
-//        bst.put("SM", new Product("Samsung S21 Ultra", 1050));
-//        bst.put("NK", new Product("Nokia 3210", 150));
-//        bst.put("IOS", new Product("iPhone 12 Pro", 1100));
-////        bst.put("PS", new Product("iPhone 11 Pro", 1100));
-////        bst.put("OS", new Product("iPhone XS", 1100));
-////        bst.put("OT", new Product("iPhone 4", 1100));
-//
-//        bst.delete("NK");
-//
-//        System.out.println(bst.containsKey("NK"));
+//        System.out.println("BFS:");
+//        Search<String> bfs = new BreadthFirstSearch<>(graph, "Almaty");
+//        outputPath(bfs, "Kyzylorda");
+    }
 
+    public static void outputPath(Search<String> search, String key) {
+        for (String v : search.pathTo(key)) {
+            System.out.print(v + " -> ");
+        }
     }
 }
+
