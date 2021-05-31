@@ -12,8 +12,6 @@ public class Main {
         graph.addEdge("Astana", "Kostanay", 3.5);
         graph.addEdge("Shymkent", "Kyzylorda", 5.4);
 
-        System.out.println(graph.hasEdge("Shymkent", "Astana"));
-
         System.out.println("Dijkstra:");
         Search<String> djk = new DijkstraSearch<>(graph, "Almaty");
         outputPath(djk, "Kyzylorda");
