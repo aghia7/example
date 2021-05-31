@@ -35,9 +35,8 @@ public class DijkstraSearch<Vertex> extends Search<Vertex> {
 
     private double getDistance(Vertex node, Vertex target) {
         for (Edge<Vertex> edge : graph.getEdges(node)) {
-            if (edge.getDest().equals(target)) {
+            if (edge.getDest().equals(target))
                 return edge.getWeight();
-            }
         }
 
         throw new RuntimeException("Not found!");
@@ -46,12 +45,11 @@ public class DijkstraSearch<Vertex> extends Search<Vertex> {
     private Vertex getVertexWithMinimumWeight(Set<Vertex> vertices) {
         Vertex minimum = null;
         for (Vertex vertex : vertices) {
-            if (minimum == null) {
+            if (minimum == null)
                 minimum = vertex;
-            } else {
-                if (getShortestDistance(vertex) < getShortestDistance(minimum)) {
+            else {
+                if (getShortestDistance(vertex) < getShortestDistance(minimum))
                     minimum = vertex;
-                }
             }
         }
         return minimum;
@@ -59,10 +57,8 @@ public class DijkstraSearch<Vertex> extends Search<Vertex> {
 
     private double getShortestDistance(Vertex destination) {
         Double d = distances.get(destination);
-        if (d == null) {
-            return Integer.MAX_VALUE;
-        } else {
-            return d;
-        }
+        return (d == null ? Double.MAX_VALUE : d);
     }
 }
+
+
