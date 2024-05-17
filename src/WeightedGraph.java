@@ -2,10 +2,10 @@ import java.util.*;
 
 public class WeightedGraph<Vertex> {
     private final boolean undirected;
-    private Map<Vertex, List<Edge<Vertex>>> map = new HashMap<>();
+    private final Map<Vertex, List<Edge<Vertex>>> map = new HashMap<>();
 
     public WeightedGraph() {
-        this.undirected = true;
+        this(true);
     }
 
     public WeightedGraph(boolean undirected) {
@@ -13,6 +13,9 @@ public class WeightedGraph<Vertex> {
     }
 
     public void addVertex(Vertex v) {
+        if (hasVertex(v))
+            return;
+
         map.put(v, new LinkedList<>());
     }
 
@@ -56,20 +59,24 @@ public class WeightedGraph<Vertex> {
 
     public boolean hasEdge(Vertex source, Vertex dest) {
         if (!hasVertex(source)) return false;
+
         return map.get(source).contains(new Edge<>(source, dest));
     }
 
     public Iterable<Vertex> adjacencyList(Vertex v) {
         if (!hasVertex(v)) return null;
+
         List<Vertex> vertices = new LinkedList<>();
         for (Edge<Vertex> e : map.get(v)) {
             vertices.add(e.getDest());
         }
+
         return vertices;
     }
 
     public Iterable<Edge<Vertex>> getEdges(Vertex v) {
         if (!hasVertex(v)) return null;
+
         return map.get(v);
     }
 }

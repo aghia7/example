@@ -43,9 +43,12 @@ public class Edge<Vertex> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
+
         if (o == null || getClass() != o.getClass()) return false;
-        Edge edge = (Edge) o;
-        return Objects.equals(source, edge.source) &&
-                Objects.equals(dest, edge.dest);
+
+        Edge<?> otherEdge = (Edge<?>) o;
+
+        return Objects.equals(this.source, otherEdge.source) &&
+                Objects.equals(this.dest, otherEdge.dest);
     }
 }

@@ -1,12 +1,11 @@
 import java.util.*;
 
-
 public class MyGraph<Vertex> {
     private final boolean undirected;
-    private Map<Vertex, List<Vertex>> map = new HashMap<>();
+    private final Map<Vertex, List<Vertex>> map = new HashMap<>();
 
     public MyGraph() {
-        this.undirected = true;
+        this(true);
     }
 
     public MyGraph(boolean undirected) {
@@ -14,6 +13,9 @@ public class MyGraph<Vertex> {
     }
 
     public void addVertex(Vertex v) {
+        if (hasVertex(v))
+            return;
+
         map.put(v, new LinkedList<>());
     }
 
@@ -60,7 +62,7 @@ public class MyGraph<Vertex> {
         return map.get(source).contains(dest);
     }
 
-    public Iterable<Vertex> adjacencyList(Vertex v) {
+    public List<Vertex> adjacencyList(Vertex v) {
         if (!hasVertex(v)) return null;
 
         return map.get(v);
