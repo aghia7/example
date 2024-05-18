@@ -63,7 +63,7 @@ public class WeightedGraph<Vertex> {
         return map.get(source).contains(new Edge<>(source, dest));
     }
 
-    public Iterable<Vertex> adjacencyList(Vertex v) {
+    public List<Vertex> adjacencyList(Vertex v) {
         if (!hasVertex(v)) return null;
 
         List<Vertex> vertices = new LinkedList<>();

@@ -20,7 +20,7 @@ public class Search<Vertex> {
 
         LinkedList<Vertex> ls = new LinkedList<>();
         for (Vertex i = v; i != source; i = edgeTo.get(i)) {
-            ls.push(i);
+            ls.push(i); // inverted adding
         }
 
         ls.push(source);

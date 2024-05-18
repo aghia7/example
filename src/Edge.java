@@ -42,7 +42,7 @@ public class Edge<Vertex> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
+        if (this == o) return true; // references compared
 
         if (o == null || getClass() != o.getClass()) return false;
 

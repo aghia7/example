@@ -17,6 +17,5 @@ public class DepthFirstSearch<Vertex> extends Search<Vertex> {
             }
         }
     }
-
 }
 

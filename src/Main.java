@@ -26,7 +26,7 @@ public class Main {
     }
 
     public static void fillWithoutWeights(MyGraph<String> graph) {
-        graph.addEdge("Almaty", "Astana");
+        graph.addEdge("Almaty", "Astana"); // 16 - 19
         graph.addEdge("Shymkent", "Atyrau");
         graph.addEdge("Atyrau", "Astana");
         graph.addEdge("Almaty", "Shymkent");
