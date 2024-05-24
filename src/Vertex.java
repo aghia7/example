@@ -4,6 +4,6 @@ public class Vertex<T> {
     private T data;
     private Map<Vertex<T>, Double> adjacentVertices;
 
-    // get set constructors
+    // getters&setters constructors
     // equals
 }
