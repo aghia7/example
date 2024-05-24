@@ -1,9 +1,9 @@
 import java.util.Map;
 
-public class Vertex<V> {
-    private V data;
-    private Map<Vertex<V>, Double> adjacentVertices;
+public class Vertex<T> {
+    private T data;
+    private Map<Vertex<T>, Double> adjacentVertices;
 
-    // get set constr
+    // get set constructors
     // equals
 }
