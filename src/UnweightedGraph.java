@@ -1,14 +1,14 @@
 import java.util.*;
 
-public class MyGraph<Vertex> {
+public class UnweightedGraph<Vertex> {
     private final boolean undirected;
     private final Map<Vertex, List<Vertex>> map = new HashMap<>();
 
-    public MyGraph() {
+    public UnweightedGraph() {
         this(true);
     }
 
-    public MyGraph(boolean undirected) {
+    public UnweightedGraph(boolean undirected) {
         this.undirected = undirected;
     }
 

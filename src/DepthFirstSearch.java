@@ -1,13 +1,13 @@
 
 
 public class DepthFirstSearch<Vertex> extends Search<Vertex> {
-    public DepthFirstSearch(MyGraph<Vertex> graph, Vertex source) {
+    public DepthFirstSearch(UnweightedGraph<Vertex> graph, Vertex source) {
         super(source);
 
         dfs(graph, source);
     }
 
-    private void dfs(MyGraph<Vertex> graph, Vertex current) {
+    private void dfs(UnweightedGraph<Vertex> graph, Vertex current) {
         marked.add(current);
 
         for (Vertex v : graph.adjacencyList(current)) {

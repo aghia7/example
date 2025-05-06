@@ -11,7 +11,7 @@ public class Main {
 
         System.out.println("--------------------------------");
 
-        MyGraph<String> graph = new MyGraph<>(true);
+        UnweightedGraph<String> graph = new UnweightedGraph<>(true);
         fillWithoutWeights(graph);
 
         System.out.println("DFS:");
@@ -25,7 +25,7 @@ public class Main {
         outputPath(bfs, "Kyzylorda");
     }
 
-    public static void fillWithoutWeights(MyGraph<String> graph) {
+    public static void fillWithoutWeights(UnweightedGraph<String> graph) {
         graph.addEdge("Almaty", "Astana"); // 16 - 19
         graph.addEdge("Shymkent", "Atyrau");
         graph.addEdge("Atyrau", "Astana");

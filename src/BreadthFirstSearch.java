@@ -2,13 +2,13 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class BreadthFirstSearch<Vertex> extends Search<Vertex>{
-    public BreadthFirstSearch(MyGraph<Vertex> graph, Vertex source) {
+    public BreadthFirstSearch(UnweightedGraph<Vertex> graph, Vertex source) {
         super(source);
 
         bfs(graph, source);
     }
 
-    private void bfs(MyGraph<Vertex> graph, Vertex current) {
+    private void bfs(UnweightedGraph<Vertex> graph, Vertex current) {
         marked.add(current);
 
 
